@@ -76,7 +76,7 @@ const firebaseConfig = {
           ...additionalInformation,
         });
 
-        const newCollectionRef = doc(userDocRef, 'orderHistory', 'documentId');
+        const newCollectionRef = doc(userDocRef, 'orderHistory', ); //'documentId'
 
     
         const orderDetails = {

@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import './paymet-success.style.scss'
+import './popup-massage.style.scss'
 import sucsess from '../../assets/qCp0FQF4jY.json'
 import Lottie from 'lottie-react';
 
-const PaymentSuccessPopup = () => {
+const Popup = ({props}) => {
   const [showPopup, setShowPopup] = useState(false);
+  const {title,text}=props
 
   useEffect(() => {
     setShowPopup(true);
@@ -21,20 +22,17 @@ const PaymentSuccessPopup = () => {
       <div className="popup-content">
       <div className='empty-message'><Lottie
       animationData={sucsess} 
-      loop={true} 
+      loop={false} 
       autoplay={true} 
     />
 </div>
-        <h3 className="popup-title">Payment successful</h3>
-        <p className="popup-text">
-          Your payment has been successfully submitted. We’ve sent
-          you an email with all of the details of your order.
-        </p>
-       
+        <h3 className="popup-title">{title}</h3>
+        <p className="popup-text">{text}</p>
       </div>
-     
     </div>
   );
 };
 
-export default PaymentSuccessPopup;
+export default Popup;
+   // Your payment has been successfully submitted. We’ve sent
+          // you an email with all of the details of your order.

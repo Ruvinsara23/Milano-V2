@@ -7,6 +7,7 @@ import InputMask from 'react-input-mask';
  import { UserContext } from '../../contexts/user.context';
  import { useContext } from 'react';
 import OrderHistoryComponent from '../../components/order-history/order-history';
+import Popup from '../../components/pop-massage/popup-massage';
 
 const defaultFormFields={
     displayName:'',
@@ -21,10 +22,17 @@ const Profile = () => {
     const [formFields, setFormFields] = useState(defaultFormFields);
     const { displayName, email,phoneNumber, address } = formFields;
     const {currentUser, setCurrentUser }=useContext( UserContext);
-
+    const [showPopup, setShowPopup] = useState(false);
+   
+   
     const [filteredUser, setFilteredUser] = useState();
     
    const userDataCollection=collection(db,"users")
+
+   const props={
+    title:'Profile updated successfully',
+    text:'You updted your profile data successfully'
+   }
 
 
 useEffect(()=>{
@@ -65,8 +73,11 @@ const handleSubmit = async (event) => {
         address,
         phoneNumber,
       });
-
+      
+    
       console.log("Data updated successfully!");
+      setShowPopup(!showPopup);
+      
     } catch (error) {
       console.error("Error updating data:", error);
     }
@@ -129,6 +140,7 @@ console.log("This user duser",filteredUser)
       <button className='sign-up' type='submit'>Update</button>
     </div>
       </form>
+      {showPopup && <Popup props={props}  />}
       </div>
     <div>
     <OrderHistoryComponent />

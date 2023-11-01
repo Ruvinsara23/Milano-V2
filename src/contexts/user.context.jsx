@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect, useCallback} from "react";
+import { createContext, useState, useEffect, useReducer} from "react";
 
 import { createUserDocumentFromAuth,onAuthStateChangedListner, } from "../utils/firebase.utils";
 
@@ -7,6 +7,8 @@ export const UserContext= createContext({
     currentUser:null,
     setCurrentUser:()=>null
 })
+
+
 
 export const UserProvider=({ children })=>{
      const [currentUser, setCurrentUser] = useState(null);

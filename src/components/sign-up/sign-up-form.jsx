@@ -4,7 +4,8 @@ import {
     createAuthUserWithEmailAndPassword,
     createUserDocumentFromAuth,
   }from '../../utils/firebase.utils';
-import './sign-up-form.style.scss'
+import './sign-up-form.style.scss';
+import Popup from '../pop-massage/popup-massage';
 
 import { UserContext } from '../../contexts/user.context';
 
@@ -16,12 +17,19 @@ const defaultFormFields={
     confirmPassword:'',
 }
 
+const props={
+  title:'Profile Create successfully',
+  text:'You updted your profile data successfully'
+ }
+
 const SignUpForm = () => {
 
 
     const [formFields, setFormFields] = useState(defaultFormFields);
     const { displayName, email, password, confirmPassword } = formFields;
     const { setCurrentUser } = useContext(UserContext);
+    const [showPopup, setShowPopup] = useState(false);
+    
   
     const resetFormFields = () => {
       setFormFields(defaultFormFields);
@@ -44,6 +52,7 @@ const SignUpForm = () => {
         await createUserDocumentFromAuth(user, { displayName });
         resetFormFields();
         setCurrentUser(user);
+        setShowPopup(!showPopup);
       } catch (error) {
         if (error.code === "auth/email-already-in-use") {
           alert("Cannot create user, email already in use");
@@ -80,6 +89,10 @@ const SignUpForm = () => {
         <button className='sign-up' type='submit'>Sign Up</button>
       </div>
     </form>
+
+  
+
+  {showPopup && <Popup props={props}  />}
     </div>
   )
 }

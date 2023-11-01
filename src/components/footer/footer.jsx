@@ -5,7 +5,7 @@ import './footer.style.scss'
 
 const Footer = () => {
   const address = "B15,Mapakanda,Badulla,Sri Lanka ";
-  const email = "marina23@gmail.com";
+  const email = "milano23@gmail.com";
 
   return (
     <footer>

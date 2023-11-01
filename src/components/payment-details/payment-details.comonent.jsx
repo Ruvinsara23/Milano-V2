@@ -6,7 +6,7 @@ import { useContext } from 'react';
 import DeliveryInformation from '../delivery-info/delivery-info.styles';
 import StripeElement from './stripe-element/stripe-element.component';
 import { useState } from 'react';
-import PaymentSuccessPopup from '../payment-sucess-pop/payment-sucess-popup';
+import Popup from '../pop-massage/popup-massage';
 import { firestore } from '../../utils/firebase.utils';
 import { getDocs,collection,updateDoc,doc,addDoc } from 'firebase/firestore';
 import { db } from '../../utils/firebase.utils';
@@ -63,6 +63,13 @@ const orderHistoryCollectionRef = collection(userDataCollection, currentUser.uid
      
     }
 
+    const props={
+      title:'Payment successful',
+      text:'   Your payment has been successfully submitted. We’ve sent  you an email with all of the details of your order.'
+     
+
+    }
+
 
   return (
     <div className='payment-details'>
@@ -97,7 +104,7 @@ const orderHistoryCollectionRef = collection(userDataCollection, currentUser.uid
     </div>
     <button className='pay-button'  onClick={handlePayment}
     >Pay now
-    {showPopup && <PaymentSuccessPopup />}
+    {showPopup && <Popup props={props}  />}
     </button>
     
   

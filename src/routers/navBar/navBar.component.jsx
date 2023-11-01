@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useContext } from 'react';
-import { FiUser, FiShoppingCart } from 'react-icons/fi';
+import { FiUser} from 'react-icons/fi';
 import './nav.styles.scss'
 import { Link, Outlet } from 'react-router-dom';
 import { UserContext } from '../../contexts/user.context';
@@ -56,9 +56,9 @@ const Navbar = () => {
               <i className="fa fa-user"  ></i> <FiUser />
               {profile && (
                 <div className="profile-dropdown">
-                  <Link to="/user-profile" className="dropdown-item">
-                    Your profile
-                  </Link>
+                 {currentUser && <Link to="/user-profile" className="dropdown-item">
+                Profile
+               </Link>} 
                   {currentUser ? (
                     <span className="dropdown-item"  onClick={signOutHandler}>
                       Sign Out
@@ -73,12 +73,10 @@ const Navbar = () => {
             </Link>
           </div>
           </div>
-          <Link to="/order" className="order-button">
+          <Link to="/menu" className="order-button">
             Order Now
           </Link>
-          <div className="menu-icon" onClick={toggleMenu}>
-            <i className="fa-bars">hello</i>
-          </div>
+         
         </div>
       </nav>
       <Outlet />
