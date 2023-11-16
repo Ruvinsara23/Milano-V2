@@ -1,0 +1,29 @@
+
+
+footer{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background:#000a06;
+  color: white;
+  padding: 3em;
+  text-align: start;
+  justify-items: center;
+  a{
+    color: white;
+    font-size: 1.5em;
+    margin: 1em;
+    font-weight: bolder;
+  }
+
+  .logo{
+    width: 60px;
+    height: 60px;
+  }
+  .footer-column{
+    display: flex;
+    gap: 30px;
+  }
+}
+

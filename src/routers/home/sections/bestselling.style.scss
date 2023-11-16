@@ -1,0 +1,35 @@
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 5rem 8%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding-bottom: 0px;
+  }
+
+  .best-selling-product-container{
+    margin: 0px 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .caption{
+    font-size: 40px;
+  
+  }
+  .best-selling-product-container{
+    margin:4rem ;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .best-selling-product-container h1{
+    font-size: 40px;
+  }
+  
+  .colored-word{
+    color: #05C066;
+  }
+  
+  
+ 
