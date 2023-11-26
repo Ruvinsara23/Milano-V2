@@ -11,6 +11,7 @@
     "@heroicons/react": "^2.0.18",
     "@mui/icons-material": "^5.14.3",
     "@mui/material": "^5.14.3",
+    "@reduxjs/toolkit": "^1.9.7",
     "@stripe/react-stripe-js": "^2.1.1",
     "@stripe/stripe-js": "^1.54.2",
     "@testing-library/jest-dom": "^5.16.5",

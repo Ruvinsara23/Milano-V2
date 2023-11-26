@@ -4,6 +4,7 @@ import './cart-icon.scss'
 import { CartContext } from '../../contexts/cart.context'
 import { useContext } from 'react'
 
+
 const CartIcon = () => {
     const {isCartOpen, setIsCartOpen,cartCount } = useContext (CartContext);
 

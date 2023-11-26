@@ -1,4 +1,5 @@
-import { createContext, useState, useEffect, useReducer} from "react";
+import { createContext, useEffect, useReducer} from "react";
+import { createAction } from "../utils/reducer/reducer.utils";
 
 import { createUserDocumentFromAuth,onAuthStateChangedListner, } from "../utils/firebase.utils";
 
@@ -42,7 +43,7 @@ const {currentUser}=state
     
 
 const setCurrentUser=(user)=>{
-    dispatch({type:USER_ACTION_TYPES.SET_CURRENT_USER,payload:user})
+    dispatch(createAction(USER_ACTION_TYPES.SET_CURRENT_USER,user))
  
 }
 
